@@ -1,8 +1,8 @@
 <template>
   <div class="fe-navbar fe-flex-between fe-align-center">
     <h1 class="fe-flex fe-align-center">
-      <span class="fe-logo"></span>
-      <span>前端学习库</span>
+      <!-- <span class="fe-logo"></span> -->
+      <span></span>
     </h1>
     <!-- <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect">
       <el-submenu v-for="item in menus" :key="item.path" :index="item.path">
@@ -10,13 +10,23 @@
         <el-menu-item v-for="menu in item.children" :key="menu.path" :index="menu.name">{{ menu.meta.title }}</el-menu-item>
       </el-submenu>
     </el-menu>-->
-    <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect">
+    <el-menu
+      :default-active="activeIndex"
+      mode="horizontal"
+      @select="handleSelect"
+    >
       <template v-for="item in menus">
-        <el-submenu v-if="item.children && !item.meta.hideSubMenu" :key="item.path" :index="item.path">
+        <el-submenu
+          v-if="item.children && !item.meta.hideSubMenu"
+          :key="item.path"
+          :index="item.path"
+        >
           <template slot="title">{{ item.meta.title }}</template>
           <menu-list :menulist="item.children"></menu-list>
         </el-submenu>
-        <el-menu-item v-else :key="item.name" :index="item.name">{{ item.meta.title }}</el-menu-item>
+        <el-menu-item v-else :key="item.name" :index="item.name">{{
+          item.meta.title
+        }}</el-menu-item>
       </template>
     </el-menu>
   </div>
@@ -30,18 +40,18 @@ export default {
   components: {
     MenuList,
   },
-  data() {
+  data () {
     return {
       activeIndex: '',
       menus: [],
     }
   },
-  created() {
+  created () {
     this.activeIndex = this.$route.name
     this.menus = routes.filter((r) => r.path != '/' && r.children)
   },
   methods: {
-    handleSelect(index) {
+    handleSelect (index) {
       if (index !== this.activeIndex) {
         this.activeIndex = index
         this.$router.push({ name: index })
