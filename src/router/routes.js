@@ -18,7 +18,7 @@ const routes = [
       {
         path: 'layout',
         name: 'layout',
-        component: () => import(/* webpackChunkName: "css" */ '@/views/aceViewSample'), //'@/views/iframeViewSample'), //'@/views/htmlViewSample'), //'@/views/css/layout/index'),
+        component: () => import(/* webpackChunkName: "css" */ '@/views/aceViewSample'),//'@/views/iframeViewSample'), //'@/views/htmlViewSample'), //'@/views/css/layout/index'), //'@/views/aceViewSample'),
         meta: {
           title: 'Layout 布局',
         },
