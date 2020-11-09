@@ -21,9 +21,22 @@ export default {
   data() {
     return {
       aceEditor: null,
-      themePath: 'ace/theme/twilight', // 不导入 webpack-resolver，该模块路径会报错
+      themePath: 'ace/theme/textmate',//twilight, // 不导入 webpack-resolver，该模块路径会报错
       modePath: 'ace/mode/html', // 同上
       codeValue: this.value,
+    }
+  },
+  watch: {
+    value(newVal) {
+      this.aceEditor.setValue(newVal)
+    },
+  },
+  methods:{
+    refresh(){
+      this.aceEditor.setValue(this.value)
+      this.aceEditor.clearSelection();
+      this.aceEditor.moveCursorTo(0, 0);
+      console.log(this.aceEditor.getValue())
     }
   },
   mounted() {
@@ -40,11 +53,8 @@ export default {
       value: this.codeValue,
     })
     this.aceEditor.setOption("wrap", "free") // 设置自动换行
-  },
-  watch: {
-    value(newVal) {
-      this.aceEditor.setValue(newVal)
-    },
-  },
+    this.aceEditor.clearSelection();
+    this.aceEditor.moveCursorTo(0, 0);
+  }
 }
 </script>
