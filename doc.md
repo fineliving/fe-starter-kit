@@ -26,4 +26,9 @@
    1. 添加styles文件夹，编写全局样式、elementUi样式
    2. main.js中添加样式表引用
 10. 浏览效果，已经完成对导航栏的编写
+11. 添加EditorPanel工具组件
+12. 添加vuex-persistedstate数据持久化组件，增加侧边栏
 
+###### 问题
+
+1. EditorPanel组件iframe存在跨域问题，如https://fineliving.github.io/canvas-test/menu.html在EditorPanel页面中的链接访问有问题。已使用href重新设置进行了解决，但需要转发，

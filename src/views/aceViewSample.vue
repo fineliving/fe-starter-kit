@@ -11,22 +11,20 @@
 </template>
 
 <script>
-import EditorPanel from '@/components/EditorPanel'
+import EditorPanel from "@/components/EditorPanel";
 export default {
   components: {
-    EditorPanel,
+    EditorPanel
   },
   data() {
     return {
-      url: ''
-    }
+      url: ""
+    };
   },
   mounted() {
-    this.url = '/api_plan/canvas-test/menu.html'
+    this.url = "/api_plan/canvas-test/menu.html";
   }
-}
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
