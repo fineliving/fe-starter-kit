@@ -107,15 +107,21 @@ export default {
       this.span = this.showEditor === true ? 14 : 24;
     },
     run() {
-      let iframeDocument = this.$refs.iframe.contentWindow.document;
-      iframeDocument.open();
-      iframeDocument.write(this.aceEditor.getValue());
-      iframeDocument.close();
+      // let iframeDocument = this.$refs.iframe.contentWindow.document;
+      // iframeDocument.open();
+      // iframeDocument.write(this.aceEditor.getValue());
+      // iframeDocument.close();
+
+      this.$refs.iframe.contentWindow.postMessage(
+        this.aceEditor.getValue(),
+        "*"
+      );
     },
     refresh() {
       this.aceEditor.setValue(this.codeValue);
       this.aceEditor.clearSelection();
       this.aceEditor.moveCursorTo(0, 0);
+      this.run();
     }
   },
   mounted() {

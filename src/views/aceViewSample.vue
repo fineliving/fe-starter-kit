@@ -22,7 +22,8 @@ export default {
     };
   },
   mounted() {
-    this.url = "/api_plan/canvas-test/menu.html";
+    this.url =
+      "https://fineliving.github.io/Leaflet.markercluster/example/marker-clustering-realworld.388.html"; //"/api_plan/canvas-test/menu.html"; //"https://fineliving.github.io/canvas-test/client.html"; //"/test.html"; //"/test.html";
   }
 };
 </script>
